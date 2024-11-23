@@ -28,8 +28,8 @@ func TestLoginSuccess(t *testing.T) {
 	router.ServeHTTP(w, req)
 
 	// Verifikasi respons
-	assert.Equal(t, http.StatusOK, w.Code)                  // Status HTTP harus 200 OK
-	assert.Contains(t, w.Body.String(), "Login successful") // Pesan respons harus mengandung "Login successful"
+	assert.Equal(t, http.StatusOK, w.Code)
+	assert.Contains(t, w.Body.String(), "Login successful")
 }
 
 func TestLoginFailed(t *testing.T) {
@@ -50,6 +50,6 @@ func TestLoginFailed(t *testing.T) {
 	router.ServeHTTP(w, req)
 
 	// Verifikasi respons
-	assert.Equal(t, http.StatusUnauthorized, w.Code)           // Status HTTP harus 401 Unauthorized
-	assert.Contains(t, w.Body.String(), "Invalid credentials") // Pesan respons harus mengandung "Invalid credentials"
+	assert.Equal(t, http.StatusUnauthorized, w.Code)
+	assert.Contains(t, w.Body.String(), "Invalid credentials")
 }
