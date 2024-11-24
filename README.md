@@ -3,20 +3,31 @@ This project is a simple API for login authentication using Golang with gorilla/
 
 # Feature
 -Endpoint login with username and password validation.
+
 -Use of routing with gorilla/mux.
+
 -Unit testing to ensure endpoints are functioning correctly.
 
 # Structure folder
 BankMerchantAPI/
 ├── controllers/       # Logic for handlers and routers
+
 ├── data/              # Data storage, such as a mock database
+
 ├── models/            # Model definition for data
+
 ├── routes/            # Additional routing configuration
+
 ├── tests/             # Test file (unit test)
+
 ├── utils/             # Additional functions or utilities
-├── views/             # Logic for response formats 
+
+├── views/             # Logic for response formats
+
 ├── main.go            # Main entry point of the application
+
 ├── go.mod             # Go module file for defining dependencies
+
 ├── go.sum             # Checksum record of dependencies
 
 # How to Run a Project
