@@ -31,8 +31,6 @@ BankMerchantAPI/
 ├── go.sum             # Checksum record of dependencies
 
 # How to Run a Project
-
-# Clone Repository
 Clone this repository onto your computer using the following command:
 git clone https://github.com/IkrmMrbsy/BankMerchantAPI.git
 cd BankMerchantAPI
