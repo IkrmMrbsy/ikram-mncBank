@@ -1,37 +1,3 @@
 [
-  {
-    "customer_id": "johndoe@example.com",
-    "action": "Paid amount: 12000",
-    "timestamp": "2024-11-23 02:57:13"
-  },
-  {
-    "customer_id": "johndoe@example.com",
-    "action": "Paid amount: 12000",
-    "timestamp": "2024-11-23 03:05:41"
-  },
-  {
-    "customer_id": "johndoe@example.com",
-    "action": "Paid amount: 12000",
-    "timestamp": "2024-11-23 03:07:01"
-  },
-  {
-    "customer_id": "johndoe@example.com",
-    "action": "Paid amount: 12000",
-    "timestamp": "2024-11-23 03:07:10"
-  },
-  {
-    "customer_id": "johndoe@example.com",
-    "action": "Paid amount: 12000",
-    "timestamp": "2024-11-23 03:07:25"
-  },
-  {
-    "customer_id": "johndoe@example.com",
-    "action": "Paid amount: 12000",
-    "timestamp": "2024-11-23 03:09:11"
-  },
-  {
-    "customer_id": "Ikram@gmail.com",
-    "action": "Paid amount: 12000",
-    "timestamp": "2024-11-23 16:56:11"
-  }
+  
 ]

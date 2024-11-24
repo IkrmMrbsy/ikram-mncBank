@@ -21,7 +21,6 @@ func TestLoginSuccess(t *testing.T) {
 	req, _ := http.NewRequest("POST", "/login", bytes.NewBuffer(payload))
 	req.Header.Set("Content-Type", "application/json")
 
-	// Gunakan httptest untuk merekam respons
 	w := httptest.NewRecorder()
 
 	// Kirim permintaan ke router
@@ -43,7 +42,6 @@ func TestLoginFailed(t *testing.T) {
 	req, _ := http.NewRequest("POST", "/login", bytes.NewBuffer(payload))
 	req.Header.Set("Content-Type", "application/json")
 
-	// Gunakan httptest untuk merekam respons
 	w := httptest.NewRecorder()
 
 	// Kirim permintaan ke router
