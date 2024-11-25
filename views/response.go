@@ -5,9 +5,14 @@ import (
 	"net/http"
 )
 
-func SendJSONResponse(w http.ResponseWriter, statusCode int, message string) {
+// SendJSONResponse mengirimkan respons JSON ke client
+func SendJSONResponse(w http.ResponseWriter, statusCode int, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(statusCode)
-	response := map[string]string{"message": message}
-	json.NewEncoder(w).Encode(response)
+
+	// Encode data menjadi JSON dan kirim
+	err := json.NewEncoder(w).Encode(data)
+	if err != nil {
+		http.Error(w, "Failed to encode JSON", http.StatusInternalServerError)
+	}
 }

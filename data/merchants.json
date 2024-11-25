@@ -1,3 +1,4 @@
 [
-
-] 
+    { "id": "1", "name": "Merchant A", "account": "1234567890" },
+    { "id": "2", "name": "Merchant B", "account": "0987654321" }
+]

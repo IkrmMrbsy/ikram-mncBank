@@ -18,6 +18,7 @@ func InitPaymentController() {
 func MakePayment(w http.ResponseWriter, r *http.Request) {
 	email := r.URL.Query().Get("email")
 	amount := r.URL.Query().Get("amount")
+	merchantID := r.URL.Query().Get("merchant_id")
 
 	// Validasi pelanggan
 	var customerFound bool
@@ -25,20 +26,34 @@ func MakePayment(w http.ResponseWriter, r *http.Request) {
 	for _, c := range customers {
 		if c.Email == email && c.IsLoggedIn {
 			customerFound = true
-			customer = c // Menyimpan customer yang ditemukan
+			customer = c
 			break
 		}
 	}
 
-	//meriksa hanya pelanggan yang terdaftar dan sudah login yang dapat melakukan pembayaran
-	if !customerFound || !customer.IsLoggedIn {
+	if !customerFound {
 		views.SendJSONResponse(w, http.StatusUnauthorized, "Customer not found or not logged in")
 		return
 	}
 
+	// Validasi merchant
+	var merchantFound bool
+	var merchant models.Merchant
+	for _, m := range merchants {
+		if m.ID == merchantID {
+			merchantFound = true
+			merchant = m
+			break
+		}
+	}
+
+	if !merchantFound {
+		views.SendJSONResponse(w, http.StatusBadRequest, "Merchant not found")
+		return
+	}
+
 	// Proses pembayaran
-	//mencatat dan menyimpan riwayat pembayaran pelanggan ke dalam file history.json
-	action := fmt.Sprintf("Paid amount: %s", amount)
+	action := fmt.Sprintf("Paid amount: %s to merchant: %s", amount, merchant.Name)
 	history = append(history, models.History{
 		CustomerID: email,
 		Action:     action,
@@ -47,8 +62,7 @@ func MakePayment(w http.ResponseWriter, r *http.Request) {
 
 	utils.WriteJSONFile("data/history.json", history)
 
-	// Menambahkan keterangan pembayaran dengan nama pengguna dan jumlah pembayaran
-	paymentMessage := fmt.Sprintf("Payment successful for %s for amount %s", customer.Name, amount)
-
+	// Respon pembayaran
+	paymentMessage := fmt.Sprintf("Payment successful for %s to %s for amount %s", customer.Name, merchant.Name, amount)
 	views.SendJSONResponse(w, http.StatusOK, paymentMessage)
 }
