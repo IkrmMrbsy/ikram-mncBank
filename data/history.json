@@ -3,5 +3,15 @@
     "customer_id": "Ikram@gmail.com",
     "action": "Paid amount: 12000 to merchant: Merchant A",
     "timestamp": "2024-11-25 18:18:40"
+  },
+  {
+    "customer_id": "Ikram@gmail.com",
+    "action": "Paid amount: 12000 to merchant: Merchant A",
+    "timestamp": "2024-11-25 18:34:16"
+  },
+  {
+    "customer_id": "Haniah@gmail.com",
+    "action": "Paid amount: 300 to merchant: Merchant B",
+    "timestamp": "2024-11-25 18:35:32"
   }
 ]
