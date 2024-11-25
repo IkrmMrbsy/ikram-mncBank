@@ -1,12 +1,12 @@
-# Bank Merchant API
-This project is a simple API for login authentication using Golang with gorilla/mux framework and testify testing library.
+# Bank Merchant API.
+Bank Merchant API is a backend application built using the Go (Golang) programming language, designed to facilitate the login process, merchant management, and payment transactions between customers and merchants. 
 
 # Feature
--Endpoint login with username and password validation.
+-Login Authentication: Validate customers using email and password.
 
--Use of routing with gorilla/mux.
+-Merchant Management: Retrieve merchant information.
 
--Unit testing to ensure endpoints are functioning correctly.
+-Payment Processing: Make payments linked to specific merchants.
 
 # Structure folder
 BankMerchantAPI/
@@ -17,8 +17,6 @@ BankMerchantAPI/
 ├── models/            # Model definition for data
 
 ├── routes/            # Additional routing configuration
-
-├── tests/             # Test file (unit test)
 
 ├── utils/             # Additional functions or utilities
 
@@ -37,11 +35,30 @@ git clone https://github.com/IkrmMrbsy/BankMerchantAPI.git
 
 cd BankMerchantAPI
 
-# Install Dependencies
-go mod tidy
-
 # Run the Server
 go run main.go
+
+# How to use the API in Postman
+# Login Customer
+-Endpoint: POST /login
+
+-URL: http://localhost:8080/login
+
+-Enter parameters (email and password)
+
+# Payment Process
+-Endpoint: POST /payment
+
+-URL: http://localhost:8080/payment
+
+-Enter parameters(email, amount and merchant_id)
+
+# Logout
+-Endpoint: POST /logout
+
+-URL: http://localhost:8080/logout
+
+-Enter parameters (email)
 
 # Contribution
 If you would like to contribute to this project, please fork this repository and submit a pull request. All contributions are greatly appreciated!
